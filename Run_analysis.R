@@ -49,3 +49,5 @@ Combined_df = rbind(test_data, train_data)
 #Melt dataframe by id variables. Then cast it and output mean/subject per movement
 melt_df <- melt(Combined_df, id.vars = c("subject", "activity_id", "activity_label"), variable.name = "movement", value.name ="movement_value")
 tidy_df <- dcast(melt_df, subject + activity_label ~ movement, mean)
+
+write.table(tidy_df, file = "Project_1.txt")
